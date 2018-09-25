@@ -18,8 +18,8 @@
 /**
  * Data privacy plugin version information
  *
- * @package    tool_dataprivacy
- * @copyright  2018 onwards Jun Pataleta
+ * @package    tool_peterrd
+ * @copyright  2018 onwards Peter Dias
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
