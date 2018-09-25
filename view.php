@@ -44,7 +44,7 @@ echo $output->heading($title);
 $renderable = new \tool_peterrd\output\view_page('Some text');
 echo $output->render($renderable);
 
-$userinput = get_string('helloworld','tool_peterrd');
+$userinput = get_string('helloworld', 'tool_peterrd');
 
 echo html_writer::div(format_text($userinput)); // Used for multil-line rich-text contents such as forum post body.
 echo html_writer::div(format_string(get_string('courseid', 'tool_peterrd', ['id' => $id])));
