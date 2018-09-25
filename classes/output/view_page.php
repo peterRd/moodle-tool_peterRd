@@ -20,6 +20,8 @@ use renderer_base;
 use templatable;
 use stdClass;
 
+defined('MOODLE_INTERNAL') || die;
+
 class view_page implements renderable, templatable {
     /** @var string $sometext Some text to show how to pass data to a template. */
     private $sometext = null;
