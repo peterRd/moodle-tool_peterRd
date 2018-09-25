@@ -22,12 +22,31 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-
 require_once(__DIR__ . '/../../../config.php');
-$url = new moodle_url('/admin/tool/peterrd/view.php');
+require_once($CFG->libdir.'/adminlib.php');
+
+//admin_externalpage_setup('toolpeterrd');
+$id = optional_param('id', 0, PARAM_INT);
+
+$url = new moodle_url('/admin/tool/peterrd/view.php', array('id'=> 1));
+$title = get_string('pluginname', 'tool_peterrd');
 $PAGE->set_context(context_system::instance());
 $PAGE->set_url($url);
-$PAGE->set_pagelayout('report');
-$PAGE->set_title('Hello to the todo list');
-$PAGE->set_heading(get_string('pluginname', 'tool_peterrd'));
-echo get_string('helloworld', 'tool_peterrd');
+$PAGE->set_url('/admin/tool/peterrd/view.php', array('id' => 1));
+$PAGE->set_title($title);
+$PAGE->set_heading($title);
+
+$output = $PAGE->get_renderer('tool_peterrd');
+
+echo $output->header();
+echo $output->heading($title);
+
+$renderable = new \tool_peterrd\output\view_page('Some text');
+echo $output->render($renderable);
+
+$userinput = get_string('helloworld','tool_peterrd');
+
+echo html_writer::div(format_text($userinput)); // Used for multil-line rich-text contents such as forum post body.
+echo html_writer::div(format_string(get_string('courseid', 'tool_peterrd', ['id'=> $id])));
+
+echo $output->footer();
