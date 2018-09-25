@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Data privacy plugin version information
+ * Custom test plugin version information
  *
  * @package    tool_peterrd
  * @copyright  2018 onwards Peter Dias
