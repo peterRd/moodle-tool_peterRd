@@ -22,7 +22,7 @@ use stdClass;
 
 class view_page implements renderable, templatable {
     /** @var string $sometext Some text to show how to pass data to a template. */
-    var $sometext = null;
+    private $sometext = null;
 
     public function __construct($sometext) {
         $this->sometext = $sometext;
