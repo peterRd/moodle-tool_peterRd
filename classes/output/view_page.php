@@ -24,7 +24,7 @@ defined('MOODLE_INTERNAL') || die;
 
 class view_page implements renderable, templatable {
     /** @var string $sometext Some text to show how to pass data to a template. */
-    public $sometext = null;
+    private $sometext = null;
 
     public function __construct($sometext) {
         $this->sometext = $sometext;
