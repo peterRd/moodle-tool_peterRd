@@ -24,6 +24,7 @@
 
 require_once(__DIR__ . '/../../../config.php');
 require_once($CFG->libdir.'/adminlib.php');
+global $DB;
 
 $id = optional_param('id', 0, PARAM_INT);
 
@@ -46,6 +47,16 @@ echo $output->render($renderable);
 $userinput = get_string('helloworld', 'tool_peterrd');
 
 echo html_writer::div(format_text($userinput)); // Used for multil-line rich-text contents such as forum post body.
-echo html_writer::div(format_string(get_string('courseid', 'tool_peterrd', ['id' => $id])));
+
+$records = $DB->get_records('user', array('confirmed' => 1));
+echo html_writer::div(format_string(get_string('usercount', 'tool_peterrd', ['count' => count($records)])));
+
+if ($id) {
+    $course = $DB->get_record('course', ['id' => $id]);
+    if ($course) {
+        echo html_writer::div(format_string(get_string('courseid', 'tool_peterrd', ['id' => $course->id])));
+        echo html_writer::div(format_string(get_string('usercount', 'tool_peterrd', ['count' => $course->fullname])));
+    }
+}
 
 echo $output->footer();
