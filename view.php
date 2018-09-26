@@ -51,9 +51,9 @@ echo html_writer::div(format_text($userinput)); // Used for multil-line rich-tex
 $records = $DB->get_records('user', array('confirmed' => 1));
 echo html_writer::div(format_string(get_string('usercount', 'tool_peterrd', ['count' => count($records)])));
 
-if($id) {
+if ($id) {
     $course = $DB->get_record('course', ['id' => $id]);
-    if($course) {
+    if ($course) {
         echo html_writer::div(format_string(get_string('courseid', 'tool_peterrd', ['id' => $course->id])));
         echo html_writer::div(format_string(get_string('usercount', 'tool_peterrd', ['count' => $course->fullname])));
     }
