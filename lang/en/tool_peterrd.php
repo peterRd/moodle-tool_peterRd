@@ -25,4 +25,5 @@
 
 $string['pluginname'] = 'My first Moodle plugin';
 $string['helloworld'] = 'Hello world';
+$string['helloworldnavigation'] = 'Hello world';
 $string['courseid'] = 'Course ID is {$a->id}';
